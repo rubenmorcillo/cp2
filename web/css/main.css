@@ -57,7 +57,7 @@ a, a:hover { text-decoration: none; text-underline: none; font-family: "IBM Plex
 
 .panel_fondo_transparente{
   background-color: rgba(3,3,3,0.9);
-  border: 1vw outset #17a2b8;
+  /*border: 0.1vw outset #17a2b8;*/
 }
 
 #cont_tabla_cartas{
