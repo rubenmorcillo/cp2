@@ -196,15 +196,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(https://res.cloudinary.com/dokf7npvg/image/upload/v1540355245/0jbUKoX.jpg);
   background-position: center;
   background-size: cover;
-  padding: 0 30px;
-  margin-left: -8%;
-  margin-top: -5%;
-  min-height: 100vh;
-  max-height: 100vh;
-  width: 100vw;
+  height: 100vh;
 
 }
 .contenedor_form_login_cp:before {
