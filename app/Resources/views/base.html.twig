@@ -2,12 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+
+        <!-- FontAwesome CSS -->
+        <link rel="stylesheet" href="{{ asset('fontawesome-free-5.7.1-web/css/all.min.css') }}">
+
+        <!-- Estilos propios de la aplicación -->
+        {#<link rel="stylesheet" href="{{ asset('css/app.css') }}">#}
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+
+        <title>{% block title %}Cyberpunk 2.0{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
+        <!-- Bootstrap JS y sus dependencias (jQuery y popper.js) -->
+        <script src="{{ asset('jquery/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('popper/popper.min.js') }}"></script>
+        <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+
+        <!--Mis JavaScripts -->
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>

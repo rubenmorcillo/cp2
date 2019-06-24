@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block contenidoExt %}
+
+    <div class="contenedor_form_login_cp" style="background: url('{{ asset('recursos/fondos/fondo_login3.jpg') }}')">
+        <form class="form_login_cp"action="{{ path('usuario_entrar') }}" method="post">
+            <div class="form_image_login_cp"></div>
+{#         #}
+
+            <div class="input_login_cp">
+
+                <input class="input_element_cp" type="text" name="_username" placeholder=" " value="{{ ultimo_usuario }}"{% if not ultimo_usuario %} autofocus="autofocus"{% endif %}>
+
+                <label class="input_label_cp" name="_password" {% if ultimo_usuario %} autofocus="autofocus"{% endif %} for="name">Usuario</label>
+            </div>
+
+            <div class="input_login_cp">
+                <input class="input_element_cp" type="password" name="_password" placeholder=" " {% if ultimo_usuario %} autofocus="autofocus"{% endif %}>
+
+                <label class="input_label_cp" for="password">Contraseña</label>
+            </div>
+            {% if error %} <p>Nombre de usuario o contraseña no válidos</p>  {% endif %}
+            <button type="submit" class="button_cp">
+                <div class="button_label_cp">Continuar</div>
+                <div class="button_icon_cp"></div>
+            </button>
+        </form>
+    </div>
+
+    <script src="{{ asset('js/login.js') }}"> </script>
+
+{% endblock %}
+{% block content %}
+{% endblock %}

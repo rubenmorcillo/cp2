@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="panel_fondo_transparente">
+        <h1>Editando: {{ usuario.id }} - {{ usuario.nickname }}</h1>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <a class="golden btn btn-outline-danger " href="{{ path('user_list') }}">Salir sin guardar</a>
+
+        <button type="submit" class="btn btn-primary"><i class="fas fa-check"></i> Guardar cambios</button>
+        {% if usuario.esAdmin == false or usuario.id != app.user.id%}
+        <a href="{{ path('usuario_eliminar', {'id': usuario.id}) }}" class="btn btn-outline-danger" name="eliminar"><i class="fas fa-trash"></i>Eliminar usuario</a>
+        {% endif %}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

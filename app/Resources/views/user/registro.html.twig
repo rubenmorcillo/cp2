@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block contenidoExt %}
+    <script src="{{ asset('js/login.js') }}"></script>
+    <div class="contenedor_form_login_cp" style="background: url('{{ asset('recursos/fondos/fondo_login3.jpg') }}')">
+
+        <form class="form_login_cp"action="{{ path('usuario_nuevo') }}" method="post">
+            <div class="form_image_login_cp"></div>
+
+                <div class="input_login_cp">
+                {{ form_row(form.login )}}
+                </div>
+                <div class="input_login_cp">
+                    {{ form_row(form.nickname)}}
+                </div>
+                <div class="input_login_cp">
+                    {{ form_row(form.password)}}
+                </div>
+                {{ form_errors(form) }}
+
+                <button type="submit" class="button_cp">
+                    <div class="button_label_cp">Registrarse</div>
+                    <div class="button_icon_cp"></div>
+                </button>
+            {{ form_end(form) }}
+        </form>
+
+{% endblock %}
+{% block content %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+
+    {% block nav %}
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand neon" href=""> Cyberpunk</a>
+            <button class="btn-outline-primary navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Mostrar secciones">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarCollapse">
+                {% set ruta = app.request.get('_route') %}
+                <ul class="navbar-nav mr-auto">
+
+
+                       <li class="nav-item ">
+                           <a class="nav-link" href="#"><i class="fas fa-cog"></i> Admin Panel</a>
+                       </li>
+
+                </ul>
+
+                {% if app.user %}
+                    <span class="navbar-light"><i class="fas crown fa-crown"></i>{{ app.user.reputation }}&nbsp&nbsp</span>
+                    <span class="golden navbar-light"><i class="golden fas fa-dollar-sign"></i>{{ app.user.credits }}&nbsp&nbsp</span>
+                <span class="navbar-light">!Hola, <a class="retro" href="">{{ app.user.nickname|capitalize }}</a>! </span>
+                    <a href="" class="ml-3 btn btn-outline-primary"><i class="fas fa-power-off"></i> EXIT</a>
+
+                {% else %}
+                    <span> <a href="">Registro&nbsp&nbsp</a></span>
+                    {% if ruta ends with 'entrar' %}
+
+                    {% else %}
+                        <a href="" class="btn btn-outline-primary"><i class="fas fa-sign-in-alt"></i> ENTRAR</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+
+        </nav>
+        {% for mensaje in app.session.flashbag.get('exito') %}
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+        {% for mensaje in app.session.flashbag.get('error') %}
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ mensaje }}
+            </div>
+        {% endfor %}
+    {% endblock %} {#NAV#}
+
+
+
+        {% block contenidoExt %}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+    </div> {#container#}
+
+
+    <style>
+        {#.elnav{#}
+            {#background: url("{{ asset('recursos/fondos/fondo_nav1.jpg') }}");#}
+            {#border-bottom:1vh outset #0d0f15;#}
+        {#}#}
+    </style>
+{% endblock %}

@@ -1,0 +1,42 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        base_de_datos:
+          entity:
+            class: AppBundle\Entity\User
+            property: login
+
+    encoders:
+        AppBundle\Entity\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN: ['ROLE_PLAYER', 'ROLE_EDITOR']
+        ROLE_EDITOR: ['ROLE_GESTOR_USUARIOS', 'ROLE_GESTOR_CARTAS']
+        ROLE_PLAYER: 'ROLE_USER'
+        ROLE_GESTOR_USUARIOS: 'ROLE_USER'
+        ROLE_GESTOR_CARTAS: 'ROLE_USER'
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            logout_on_user_change: true
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            form_login:
+                login_path: usuario_entrar
+                check_path: usuario_entrar
+
+            logout:
+                path: usuario_salir

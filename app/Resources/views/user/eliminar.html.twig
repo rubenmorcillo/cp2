@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {{ parent() }}
+
+    <div id="fondo_back" class="alert alert-danger">
+
+        <p>¿Está seguro de que desea borrar el usuario?</p>
+    </div>
+
+    <form method="post">
+        <a href="{{  path('usuario_perfil')}}">Cancelar</a>
+        <button type="submit" class="btn btn-outline-danger" name="borrar"><i class="fa fa-trash-o">Borrar</i></button>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+{% block contenidoExt %}
+
+    <h1>CyberLords</h1>
+    <table class="table panel_fondo_transparente" >
+        <thead>
+        <tr>
+            <th class="neon">NickName</th>
+            <th class="neon"><i class="fas fa-dollar-sign"></i> Créditos</th>
+            <th class="neon"><i class="fas -crown fa-crown"></i> Rep.</th>
+            {% if is_granted('ROLE_ADMIN') %}
+            <th class="neon"><i class="fas fa-microchip"></i>¿Es admin?</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td class="letra_listas">{% if is_granted('ROLE_ADMIN') %}<a href="{{ path('admin_usuario_editar',{'id':user.id}) }}">{% endif %}{{ user.nickname }}</a></td>
+                <td class="letra_listas">{{ user.credits }}</td>
+                <td class="letra_listas">{{ user.reputation }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td class="letra_listas">{% if user.esadmin %}Sí{% else %}No{% endif %}</td>
+                {% endif %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}
