@@ -23,16 +23,16 @@
 
                 {% if app.user %}
                     <span class="navbar-light"><i class="fas crown fa-crown"></i>{{ app.user.reputation }}&nbsp&nbsp</span>
-                    <span class="golden navbar-light"><i class="golden fas fa-dollar-sign"></i>{{ app.user.credits }}&nbsp&nbsp</span>
-                <span class="navbar-light">!Hola, <a class="retro" href="">{{ app.user.nickname|capitalize }}</a>! </span>
-                    <a href="" class="ml-3 btn btn-outline-primary"><i class="fas fa-power-off"></i> EXIT</a>
+                    <span class="golden navbar-light"><i class="golden fas fa-dollar-sign"></i>{{ app.user.money }}&nbsp&nbsp</span>
+                    <span class="navbar-light">!Hola, <a class="retro" href="">{{ app.user.nick|capitalize }}</a>! </span>
+                    <a href="{{ path('usuario_salir') }}" class="ml-3 btn btn-outline-primary"><i class="fas fa-power-off"></i> EXIT</a>
 
                 {% else %}
                     <span> <a href="">Registro&nbsp&nbsp</a></span>
                     {% if ruta ends with 'entrar' %}
 
                     {% else %}
-                        <a href="" class="btn btn-outline-primary"><i class="fas fa-sign-in-alt"></i> ENTRAR</a>
+                        <a href="{{ path('usuario_entrar') }}" class="btn btn-outline-primary"><i class="fas fa-sign-in-alt"></i> ENTRAR</a>
                     {% endif %}
                 {% endif %}
             </div>

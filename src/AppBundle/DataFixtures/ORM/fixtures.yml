@@ -1,0 +1,19 @@
+AppBundle\Entity\User:
+  admin:
+    login:  admin
+    nickname: MR. FIXER
+    password: admin
+    esAdmin: true
+    money: 99999
+    reputation: 99999
+
+
+  jugador_test:
+    login: test
+    nickname (unique): Tester
+    password: test
+    esAdmin: false
+    money: 9999
+    reputation: 5
+
+

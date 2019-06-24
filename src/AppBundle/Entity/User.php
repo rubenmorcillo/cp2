@@ -25,11 +25,6 @@ class User implements UserInterface
     private $id;
 
 
-    /**
-     * @ORM\Column(type="date")
-     * @var \DateTime
-     */
-    private $signDate;
 
     /**
      * @ORM\Column(type="string", unique=true)
@@ -45,7 +40,7 @@ class User implements UserInterface
      * @Assert\NotBlank()
      * @var String
      */
-    private $nickname;
+    private $nick;
 
     /**
      * @ORM\Column(type="string")
@@ -71,7 +66,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      * @var int
      */
-    private $credits;
+    private $money;
 
     /**
      * @ORM\Column(type="integer")
@@ -79,69 +74,8 @@ class User implements UserInterface
      */
     private $reputation;
 
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Card", mappedBy="cardOwner")
-     * @ORM\JoinColumn(nullable=true)
-     * @var Card[]
-     */
-    private $cards;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Deck", mappedBy="deckOwner")
-     * @ORM\JoinColumn(nullable=true)
-     * @var Deck[]
-     */
-    private $decks;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Battle", mappedBy="playerAttacker")
-     * @ORM\JoinColumn(nullable=true)
-     * @var Battle[]
-     */
-    private $ataques;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Battle", mappedBy="playerDefender")
-     * @ORM\JoinColumn(nullable=true)
-     * @var Battle[]
-     */
-    private $defensas;
-
-    /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Battle", mappedBy="winner")
-     * @ORM\JoinColumn(nullable=true)
-     * @var Battle[]
-     */
-    private $win;
 
 
-
-    public function __construct()
-    {
-        $this->decks=new ArrayCollection();
-        $this->cards=new ArrayCollection();
-        $this->ataques=new ArrayCollection();
-        $this->defensas=new ArrayCollection();
-        $this->win=new ArrayCollection();
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getSignDate()
-    {
-        return $this->signDate;
-    }
-
-    /**
-     * @param \DateTime $signDate
-     * @return User
-     */
-    public function setSignDate(\DateTime $signDate)
-    {
-        $this->signDate = $signDate;
-        return $this;
-    }
 
 
     /**
@@ -165,18 +99,18 @@ class User implements UserInterface
     /**
      * @return String
      */
-    public function getNickname()
+    public function getNick()
     {
-        return $this->nickname;
+        return $this->nick;
     }
 
     /**
-     * @param String $nickname
+     * @param String $nick
      * @return User
      */
-    public function setNickname($nickname)
+    public function setNickname($nick)
     {
-        $this->nickname = $nickname;
+        $this->nick = $nick;
         return $this;
     }
 
@@ -219,18 +153,18 @@ class User implements UserInterface
     /**
      * @return int
      */
-    public function getCredits()
+    public function getMoney()
     {
-        return $this->credits;
+        return $this->money;
     }
 
     /**
      * @param int $credits
      * @return User
      */
-    public function setCredits($credits)
+    public function setMoney($money)
     {
-        $this->credits = $credits;
+        $this->money= $money;
         return $this;
     }
 
@@ -260,41 +194,7 @@ class User implements UserInterface
         return $this->id;
     }
 
-    /**
-     * @return Card[]
-     */
-    public function getCards()
-    {
-        return $this->cards;
-    }
 
-    /**
-     * @param Card[]|null $cards
-     * @return User
-     */
-    public function setCards($cards)
-    {
-        $this->cards = $cards;
-        return $this;
-    }
-
-    /**
-     * @return Deck[]
-     */
-    public function getDecks()
-    {
-        return $this->decks;
-    }
-
-    /**
-     * @param Deck[]|null $decks
-     * @return User
-     */
-    public function setDecks($decks)
-    {
-        $this->decks = $decks;
-        return $this;
-    }
 
     /**
      * @param int $reputation
@@ -312,60 +212,6 @@ class User implements UserInterface
     public function getReputation()
     {
         return $this->reputation;
-    }
-
-    /**
-     * @return Battle[]
-     */
-    public function getAtaques()
-    {
-        return $this->ataques;
-    }
-
-    /**
-     * @param Battle[] $ataques
-     * @return User
-     */
-    public function setAtaques($ataques)
-    {
-        $this->ataques = $ataques;
-        return $this;
-    }
-
-    /**
-     * @return Battle[]
-     */
-    public function getDefensas()
-    {
-        return $this->defensas;
-    }
-
-    /**
-     * @param Battle[] $defensas
-     * @return User
-     */
-    public function setDefensas($defensas)
-    {
-        $this->defensas = $defensas;
-        return $this;
-    }
-
-    /**
-     * @return Battle[]
-     */
-    public function getWin()
-    {
-        return $this->win;
-    }
-
-    /**
-     * @param Battle[] $win
-     * @return User
-     */
-    public function setWin($win)
-    {
-        $this->win = $win;
-        return $this;
     }
 
 
@@ -398,7 +244,7 @@ class User implements UserInterface
 
     public function __toString()
     {
-        return $this->getNickname();
+        return $this->getNick();
     }
 
 
