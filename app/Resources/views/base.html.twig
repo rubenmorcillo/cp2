@@ -10,8 +10,9 @@
         <link rel="stylesheet" href="{{ asset('fontawesome-free-5.7.1-web/css/all.min.css') }}">
 
         <!-- Estilos propios de la aplicación -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/estructura.css') }}">
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 
         <title>{% block title %}Cyberpunk 2.0{% endblock %}</title>
@@ -19,7 +20,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-    <div id="wrapper" class="panel_fondo_transparente">
+    <div id="wrapper">
         {% block body %}{% endblock %}
         <!-- Bootstrap JS y sus dependencias (jQuery y popper.js) -->
         <script src="{{ asset('jquery/jquery-3.3.1.min.js') }}"></script>

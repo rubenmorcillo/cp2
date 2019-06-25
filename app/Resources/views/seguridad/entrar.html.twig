@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block contenidoExt %}
+{% block content %}
 
     <div class="contenedor_form_login_cp">
         <form class="form_login_cp"action="{{ path('usuario_entrar') }}" method="post">
@@ -29,6 +29,4 @@
 
     <script src="{{ asset('js/login.js') }}"> </script>
 
-{% endblock %}
-{% block content %}
 {% endblock %}

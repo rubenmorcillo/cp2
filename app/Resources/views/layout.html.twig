@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
 
 
     {% block nav %}
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top nav_pri">
             <a class="navbar-brand neon" href=""> Cyberpunk</a>
 
 
@@ -51,19 +50,15 @@
         {% endfor %}
     {% endblock %} {#NAV#}
 
+    {% block cont_izq %}
+
+    {% endblock %}
+    {% block cont_cent %}{% endblock %}
+    {% block cont_der %}
+
+    {% endblock %}
+    {% block content %}{% endblock %}
 
 
-        {% block contenidoExt %}
-        {% endblock %}
 
-        {% block content %}{% endblock %}
-    </div> {#container#}
-
-
-    <style>
-        {#.elnav{#}
-            {#background: url("{{ asset('recursos/fondos/fondo_nav1.jpg') }}");#}
-            {#border-bottom:1vh outset #0d0f15;#}
-        {#}#}
-    </style>
 {% endblock %}
