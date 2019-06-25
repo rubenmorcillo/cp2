@@ -82,7 +82,9 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Replic", mappedBy="owner");
+     * @ORM\JoinColumn(nullable=true)
      * @var Replic[]
+     *
      */
     private $replics;
 

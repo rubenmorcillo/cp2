@@ -3,6 +3,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -13,6 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Mercenary
 {
+
+    public function __construct()
+    {
+        $this->copys= new ArrayCollection();
+    }
 
     /**
      * @ORM\Id
@@ -90,6 +96,7 @@ class Mercenary
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Replic", mappedBy="mercenary")
+     * @ORM\JoinColumn(nullable=true)
      * @var Replic[]
      */
     private $copys;

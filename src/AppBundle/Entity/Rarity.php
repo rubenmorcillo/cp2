@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,6 +18,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Rarity
 {
+    public function __construct()
+    {
+        $this->mercenary = new ArrayCollection();
+    }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -40,6 +46,8 @@ class Rarity
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Mercenary", mappedBy="rarity")
+     * @var Mercenary[]
+     * @ORM\JoinColumn(nullable=true)
      */
     private $mercenary;
 

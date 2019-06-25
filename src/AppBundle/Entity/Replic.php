@@ -26,6 +26,7 @@ class Replic
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="replics")
+     * @ORM\JoinColumn(nullable=true)
      * @var User
      */
     private $owner;
