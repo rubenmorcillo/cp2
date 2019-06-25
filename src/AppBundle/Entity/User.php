@@ -16,6 +16,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class User implements UserInterface
 {
 
+
+    public function __construct()
+    {
+        $this->replics=new ArrayCollection();
+    }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -73,6 +79,12 @@ class User implements UserInterface
      * @var int
      */
     private $reputation;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Replic", mappedBy="owner");
+     * @var Replic[]
+     */
+    private $replics;
 
     /**
      * @return int
@@ -205,6 +217,24 @@ class User implements UserInterface
     public function setReputation($reputation)
     {
         $this->reputation = $reputation;
+        return $this;
+    }
+
+    /**
+     * @return Replic[]
+     */
+    public function getReplics()
+    {
+        return $this->replics;
+    }
+
+    /**
+     * @param Replic[] $replics
+     * @return User
+     */
+    public function setReplics($replics)
+    {
+        $this->replics = $replics;
         return $this;
     }
 

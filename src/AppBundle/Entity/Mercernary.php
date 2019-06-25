@@ -84,8 +84,15 @@ class Mercenary
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Rarity", inversedBy="mercenary")
+     * @var Rarity
      */
     private $rarity;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Replic", mappedBy="mercenary")
+     * @var Replic[]
+     */
+    private $copys;
 
     /**
      * @return int
@@ -290,6 +297,24 @@ class Mercenary
     public function setRarity($rarity)
     {
         $this->rarity = $rarity;
+        return $this;
+    }
+
+    /**
+     * @return Replic[]
+     */
+    public function getCopys()
+    {
+        return $this->copys;
+    }
+
+    /**
+     * @param Replic[] $copys
+     * @return Mercenary
+     */
+    public function setCopys($copys)
+    {
+        $this->copys = $copys;
         return $this;
     }
 
