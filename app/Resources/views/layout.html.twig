@@ -13,8 +13,11 @@
                 <ul class="navbar-nav mr-auto">
                     {% if app.user %}
                        <li class="nav-item ">
-                           <a class="nav-link" href="#"><i class="fas fa-cog"></i> Admin Panel</a>
+                           <a class="nav-link" href="{{ path('inicio_usuario', {'user': app.user.id}) }}"><i class="fas fa-cog"></i> Inicio </a>
                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#"><i class="fas fa-cog"></i> Otro </a>
+                        </li>
                     {% endif %}
                 </ul>
 
