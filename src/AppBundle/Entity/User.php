@@ -74,9 +74,13 @@ class User implements UserInterface
      */
     private $reputation;
 
-
-
-
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return String
@@ -108,7 +112,7 @@ class User implements UserInterface
      * @param String $nick
      * @return User
      */
-    public function setNickname($nick)
+    public function setNick($nick)
     {
         $this->nick = $nick;
         return $this;
@@ -151,24 +155,6 @@ class User implements UserInterface
     }
 
     /**
-     * @return int
-     */
-    public function getMoney()
-    {
-        return $this->money;
-    }
-
-    /**
-     * @param int $credits
-     * @return User
-     */
-    public function setMoney($money)
-    {
-        $this->money= $money;
-        return $this;
-    }
-
-    /**
      * @return String
      */
     public function getImage()
@@ -189,12 +175,28 @@ class User implements UserInterface
     /**
      * @return int
      */
-    public function getId()
+    public function getMoney()
     {
-        return $this->id;
+        return $this->money;
     }
 
+    /**
+     * @param int $money
+     * @return User
+     */
+    public function setMoney($money)
+    {
+        $this->money = $money;
+        return $this;
+    }
 
+    /**
+     * @return int
+     */
+    public function getReputation()
+    {
+        return $this->reputation;
+    }
 
     /**
      * @param int $reputation
@@ -206,13 +208,10 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getReputation()
-    {
-        return $this->reputation;
-    }
+
+
+
+
 
 
 
