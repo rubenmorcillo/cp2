@@ -9,6 +9,14 @@
     display: block;
     border: 0.1vw outset black;
 }
+#cont_portada{
+    position:fixed;
+    top:11%;
+    left:10%;
+    width: 80%;
+    overflow-y: scroll;
+    max-height: 85vh;
+}
 #cont_izq{
     position:fixed;
     left:1%;
