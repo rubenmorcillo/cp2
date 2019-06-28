@@ -22,7 +22,7 @@ AppBundle\Entity\Rarity:
 
 AppBundle\Entity\Mercenary:
   mer1:
-    name: soldado
+    name: decker
     image: indef1.jpg
     hpIni: 1
     atqIni: 1
@@ -36,8 +36,8 @@ AppBundle\Entity\Mercenary:
 
 
   mer2:
-    name: soldado
-    image: indef1.jpg
+    name: samurai
+    image: indef2.jpg
     hpIni: 1
     atqIni: 1
     defIni: 1
@@ -49,8 +49,8 @@ AppBundle\Entity\Mercenary:
     rarity: '@rareza_<numberBetween(1,4)>'
 
   mer3:
-    name: soldado
-    image: indef1.jpg
+    name: netrunner
+    image: indef3.jpg
     hpIni: 1
     atqIni: 1
     defIni: 1

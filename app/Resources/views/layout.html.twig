@@ -16,8 +16,9 @@
                            <a class="nav-link" href="{{ path('inicio_usuario', {'user': app.user.id}) }}"><i class="fas fa-cog"></i> Inicio </a>
                        </li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#"><i class="fas fa-cog"></i> Otro </a>
+                            <a class="nav-link" href="{{ path('combate', {'user': app.user.id}) }}"><i class="fas fa-cog"></i> Lucha</a>
                         </li>
+
                     {% endif %}
                 </ul>
 
