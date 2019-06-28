@@ -32,5 +32,21 @@
 {% endblock %}
 
 {% block cont_der %}
+{% set raiz = 'src/pjs/' %}
 
+<div id="stat_personaje" class="panel_fondo_transparente ">
+<div id="foto_personaje_detalle"style="background:url({{ asset(raiz)~'pj10.jpg' }});
+                    background-size:200%; background-position: 42% 10%;background-repeat: no-repeat;">
+</div>
+<div id="ataques_personaje_detalle">
+
+</div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+
+        });
+    </script>
 {% endblock %}

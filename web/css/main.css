@@ -21,6 +21,9 @@ html{
 
 a, a:hover { text-decoration: none; text-underline: none;}
 
+.oculto{
+  display:none;
+}
 
 /*FIN ESTILOS GENERALES*/
 /*///////////////////////////////////////////////////////////////////////
