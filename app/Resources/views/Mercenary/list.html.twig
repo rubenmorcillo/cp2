@@ -1,32 +1,36 @@
-{% extends 'layout.html.twig' %}
-{% block contenidoExt %}
+{% extends 'user/InterfazUsuario.html.twig' %}
+{% block cont_cent %}
+{% set raiz = 'src/pjs/' %}
+<div id="lista_personajes">
+    <h1>Lista de mercenarios</h1>
 
-    <h1>CyberLords</h1>
-    <table class="table panel_fondo_transparente" >
-        <thead>
-        <tr>
-            <th class="neon">NickName</th>
-            <th class="neon"><i class="fas fa-dollar-sign"></i> Créditos</th>
-            <th class="neon"><i class="fas -crown fa-crown"></i> Rep.</th>
-            {% if is_granted('ROLE_ADMIN') %}
-            <th class="neon"><i class="fas fa-microchip"></i>¿Es admin?</th>
-            {% endif %}
-        </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td class="letra_listas">{% if is_granted('ROLE_ADMIN') %}<a href="{{ path('admin_usuario_editar',{'id':user.id}) }}">{% endif %}{{ user.nickname }}</a></td>
-                <td class="letra_listas">{{ user.credits }}</td>
-                <td class="letra_listas">{{ user.reputation }}</td>
-                {% if is_granted('ROLE_ADMIN') %}
-                <td class="letra_listas">{% if user.esadmin %}Sí{% else %}No{% endif %}</td>
-                {% endif %}
+    <div class="tabla_cartas">
 
-            </tr>
+
+
+    <div class="row primera_fila">
+
+
+
+        {%  for mer in mercenarios%}
+
+        <div class="carta-ic-marco  columna">
+            <div class="carta-icon " style="background:url({{ asset(raiz~ mer.image) }});
+                    background-size:250%; background-position: 42% 10%;background-repeat: no-repeat;">
+                <div class="carta-ic-cover"></div>
+            </div>
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
+    </div>
+    <style>
+        #lista_personajes{
+            margin-top:5%;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
 
+{% block cont_der %}
 
 {% endblock %}

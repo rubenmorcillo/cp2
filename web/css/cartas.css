@@ -1,0 +1,41 @@
+.tabla_cartas {
+    padding: 10px;
+    min-width: 650px;
+    max-width: 850px;
+    margin-left:20%;
+    margin-right:40%;
+}
+
+
+.fila{
+    width: 100%;
+}
+/*.fila::after{*/
+    /*content:"";*/
+    /*clear: both;*/
+    /*display:table;*/
+/*}*/
+.columna{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+/*.row::after{*/
+    /*content: "";*/
+    /*clear: both;*/
+    /*display: table;*/
+/*}*/
+.row{
+    margin-right: 0px;
+}
+
+
+.carta-cont { display: flex; text-align: center;  }
+.carta-ic-marco {height: 10em; width:12em; border: 2px solid #bbb; padding: 0.5rem; }
+.carta-icon {width: 100%; height: 100%;}
+.carta-ic-cover {  height: 100%; background: rgba(122,143,140,0.8); transition: all ease 1s; -moz-transition: all ease 1s;}
+.carta-ic-cover:hover { background: rgba(22,43,79,0.1); }
