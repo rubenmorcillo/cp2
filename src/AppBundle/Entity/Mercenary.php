@@ -40,29 +40,6 @@ class Mercenary
      */
     private $image;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $hpIni;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $atqIni;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $defIni;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $velIni;
 
     /**
      * @ORM\Column(type="float")
@@ -145,77 +122,6 @@ class Mercenary
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getHpIni()
-    {
-        return $this->hpIni;
-    }
-
-    /**
-     * @param int $hpIni
-     * @return Mercenary
-     */
-    public function setHpIni($hpIni)
-    {
-        $this->hpIni = $hpIni;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getAtqIni()
-    {
-        return $this->atqIni;
-    }
-
-    /**
-     * @param int $atqIni
-     * @return Mercenary
-     */
-    public function setAtqIni($atqIni)
-    {
-        $this->atqIni = $atqIni;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getDefIni()
-    {
-        return $this->defIni;
-    }
-
-    /**
-     * @param int $defIni
-     * @return Mercenary
-     */
-    public function setDefIni($defIni)
-    {
-        $this->defIni = $defIni;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVelIni()
-    {
-        return $this->velIni;
-    }
-
-    /**
-     * @param int $velIni
-     * @return Mercenary
-     */
-    public function setVelIni($velIni)
-    {
-        $this->velIni = $velIni;
-        return $this;
-    }
 
     /**
      * @return float

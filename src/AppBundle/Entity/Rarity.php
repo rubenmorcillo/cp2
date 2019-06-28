@@ -31,6 +31,12 @@ class Rarity
     private $id;
 
     /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    private $literal;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -50,6 +56,26 @@ class Rarity
      * @ORM\JoinColumn(nullable=true)
      */
     private $mercenary;
+
+    /**
+     * @return string
+     */
+    public function getLiteral()
+    {
+        return $this->literal;
+    }
+
+    /**
+     * @param string $literal
+     * @return Rarity
+     */
+    public function setLiteral($literal)
+    {
+        $this->literal = $literal;
+        return $this;
+    }
+
+
 
     /**
      * @return float
@@ -85,5 +111,26 @@ class Rarity
     {
         $this->mercenary = $mercenary;
         return $this;
+    }
+
+    public function __toString()
+    {
+        $i = $this->getId();
+        $rz = 'culo'.$i;
+        switch ($i) {
+            case 0:
+                $rz = 'comun';
+                break;
+            case 1:
+                $rz = 'inusual';
+                break;
+            case 2:
+                $rz = 'rara';
+                break;
+            case 3:
+                $rz = 'leyenda';
+                break;
+        }
+        return $rz;
     }
 }

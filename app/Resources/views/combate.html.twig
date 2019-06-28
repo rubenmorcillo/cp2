@@ -1,0 +1,12 @@
+{% extends 'user/InterfazUsuario.html.twig' %}
+
+{% block cont_cent%}
+<div id="cont_cent" class="panel_fondo_transparente">
+<div id="combate_izq">
+    <h1>{{ usuario.nick }}</h1>
+    <p>{{ replica.mercenary.name }}</p>
+    <p><span>ATQ</span>{{ replica.mercenary.atqIni  }}</p>
+</div>
+<div id="combate_derecha"></div>
+</div>
+{% endblock %}

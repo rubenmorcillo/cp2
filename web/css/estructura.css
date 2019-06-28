@@ -28,9 +28,9 @@
     position:fixed;
     top:15%;
     left:25%;
-    overflow-y: hidden;
     min-height: 85%;
     width: 50%;
+
     margin: auto;
     border:0;
 }

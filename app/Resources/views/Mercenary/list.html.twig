@@ -1,0 +1,36 @@
+{% extends 'user/InterfazUsuario.html.twig' %}
+{% block cont_cent %}
+{% set raiz = 'src/pjs/' %}
+<div id="lista_personajes">
+    <h1>Lista de mercenarios</h1>
+
+    <div class="tabla_cartas">
+
+
+
+    <div class="row primera_fila">
+
+
+
+        {%  for mer in mercenarios%}
+
+        <div class="carta-ic-marco  columna">
+            <div class="carta-icon " style="background:url({{ asset(raiz~ mer.image) }});
+                    background-size:250%; background-position: 42% 10%;background-repeat: no-repeat;">
+                <div class="carta-ic-cover"></div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <style>
+        #lista_personajes{
+            margin-top:5%;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block cont_der %}
+
+{% endblock %}
