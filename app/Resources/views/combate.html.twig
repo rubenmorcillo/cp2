@@ -1,5 +1,10 @@
 {% extends 'layout.html.twig' %}
-
+{% block nav %}
+    <nav id="op_combate">
+    <p>opciones</p>
+    <hr>
+    </nav>
+{% endblock %}
 {% block cont_cent%}
 <div id="cont_combate" class="panel_fondo_transparente">
 <div id="combate_izq">
@@ -9,4 +14,12 @@
 </div>
 <div id="combate_derecha"></div>
 </div>
+    <div id="interfaz_batalla">
+        <div id="ataques_batalla">
+            <ul>
+                <li>ATQ A</li>
+                <li>ATQ B</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}

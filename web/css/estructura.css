@@ -34,14 +34,7 @@
     margin: auto;
     border:0;
 }
-#cont_combate{
-    position:relative;
-    top:10%;
-    margin:auto;
-    min-height: 85%;
-    width: 90%;
-    border:0;
-}
+
 #cont_derecha{
     position:fixed;
     right:0.05%;
@@ -50,15 +43,51 @@
     margin-left: 2.5%;
     /*min-height: 85%;*/
 }
+
+/* COMBATE */
+#cont_combate{
+    position:relative;
+    margin:auto;
+    min-height: 100%;
+    width: 100%;
+    border:0;
+}
+#op_combate{
+    position: fixed;
+    top:0;
+}
+
+#combate_izq{
+    position:fixed;
+    top:15%;
+    left:10%;
+}
 #interfaz_batalla{
     position:fixed;
-    left:40%;
-    bottom:0;
+    bottom:2px;
     background-color: rgba(190,190,190,0.2);
-    width:20%;
-    margin-right:2.5%;
-    border:2px solid #70ffff;
+    width:99.8%;
+    height: 15%;
+    border-top:2px solid #70ffff;
 }
+#interfaz_batalla ul{
+    display:flex;
+}
+#interfaz_batalla li{
+    display: inline-block;
+    margin: auto;
+}
+#ataques_batalla{
+    width: 40%;
+
+    position:relative;
+
+    margin-left:20px;
+    margin-top:20px;
+    background-color: rgba(40,40,40,0.8);
+
+}
+/* FIN COMBATE*/
 /*#bloque_content{*/
     /*width:100%;*/
     /*height: 100%;*/
