@@ -18,11 +18,12 @@ AppBundle\Entity\User:
 
 AppBundle\Entity\Rarity:
   rareza_{1..4}:
+    literal: '<es_ES:word()>'
     rate: 0.5
 
 AppBundle\Entity\Mercenary:
   mer1:
-    name: decker
+    name: Cyborg
     image: indef1.jpg
     hpIni: 1
     atqIni: 1
@@ -36,7 +37,7 @@ AppBundle\Entity\Mercenary:
 
 
   mer2:
-    name: samurai
+    name: Neo-Samurai
     image: indef2.jpg
     hpIni: 1
     atqIni: 1
