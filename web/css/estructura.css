@@ -27,11 +27,19 @@
 #cont_cent{
     position:fixed;
     top:15%;
-    left:25%;
+    left:18%;
     min-height: 85%;
-    width: 50%;
+    width: 60%;
 
     margin: auto;
+    border:0;
+}
+#cont_combate{
+    position:relative;
+    top:10%;
+    margin:auto;
+    min-height: 85%;
+    width: 90%;
     border:0;
 }
 #cont_derecha{
