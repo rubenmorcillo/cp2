@@ -1,5 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'juego/layout.html.twig' %}
 
-{% block body %}
 
+{% block menu %}
+    {% if app.user %}
+{{ parent() }}
+    {% endif %}
+{% endblock %}
+{% block pantallajuego %}
+<div>
+
+</div>
 {% endblock %}
