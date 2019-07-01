@@ -20,6 +20,7 @@
                      </g>
                  </g></svg>
          </button>
+         {% block nav %}
          <ul class="menu">
              <li class="menu__item"><a class="menu__link" href="{{ path('inicio_usuario', {'user': app.user.id}) }}"><i class="fas fa-home link-ico"></i>Inicio</a></li>
              <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-user link-ico"></i>otro</a></li>
@@ -30,6 +31,7 @@
              <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
          </ul>
      </nav>
+     {% endblock %}
      <header id="header" class="header">
          {% block pantallajuego %}
 
