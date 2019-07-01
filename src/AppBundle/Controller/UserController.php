@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function mainAction(User $user)
     {
-        return $this->render('user/InterfazUsuario.html.twig', [
+        return $this->render('juego/main.html.twig', [
             'usuario' => $user
         ]);
     }

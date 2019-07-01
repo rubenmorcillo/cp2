@@ -1,0 +1,397 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ {% block menu %}
+     <nav id="navi" class="navbar">
+         <button id="menuBtn" class="navbar__btn"><svg class="menu-ico" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<g>
+    <g>
+        <path class="secondbar" d="M491.318,235.318H20.682C9.26,235.318,0,244.577,0,256s9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.259,20.682-20.682C512,244.578,502.741,235.318,491.318,235.318z" fill="#FFFFFF"/>
+    </g>
+</g>
+                 <g>
+                     <g>
+                         <path class="firstbar" d="M491.318,78.439H20.682C9.26,78.439,0,87.699,0,99.121c0,11.422,9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.26,20.682-20.682C512,87.699,502.741,78.439,491.318,78.439z" fill="#FFFFFF"/>
+                     </g>
+                 </g>
+                 <g>
+                     <g>
+                         <path class="thirdbar" d="M491.318,392.197H20.682C9.26,392.197,0,401.456,0,412.879s9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.259,20.682-20.682S502.741,392.197,491.318,392.197z" fill="#FFFFFF"/>
+                     </g>
+                 </g></svg>
+         </button>
+         <ul class="menu">
+             <li class="menu__item"><a class="menu__link" href="{{ path('inicio_usuario', {'user': app.user.id}) }}"><i class="fas fa-home link-ico"></i>Inicio</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-user link-ico"></i>otro</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
+             <li class="menu__item"><a class="menu__link" href="#"><i class="fas fa-mobile-alt link-ico"></i>Otro</a></li>
+         </ul>
+     </nav>
+     <header id="header" class="header">
+         {% block pantallajuego %}
+
+         {% endblock %}
+         {#<h1 class="title">Canvas Menu Effect</h1>#}
+         <a id="btn_salir" href="{{ path('usuario_salir') }}" class="ml-3 btn btn-outline-primary"><i class="fas fa-power-off"></i> EXIT</a>
+     </header>
+
+
+     {#<section class="section2" id="section-A">#}
+         {#<h2 class="title">About Section</h2>#}
+     {#</section>#}
+
+     {#<section class="section3" id="section-B">#}
+         {#<h2 class="title">Contact Section</h2>#}
+     {#</section>#}
+     <canvas class="canvas-bg canvas-bg-deactive" id="canvas"></canvas>
+ {% endblock %}
+
+    <style>
+        html {
+            font-size: 62.5%;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .canvas-bg {
+            background: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #btn_salir{
+            position:fixed;
+            top:1em;
+            right:1em;
+        }
+
+        .canvas-bg-active {
+            opacity: 1;
+            transition: 2s;
+            z-index: 1;
+        }
+
+        .canvas-bg-deactive {
+            opacity: 0;
+            transition: 2s;
+            z-index: -1;
+        }
+
+
+        .header {
+            position: relative;
+            height: 100vh;
+            {#background: url("{{ asset('src/mosaico2.jpg') }}");#}
+
+        }
+
+        .title {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%);
+            color: #007bff;
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        .navbar {
+            position: fixed;
+            z-index: 2;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            box-sizing: border-box;
+            /*padding: 150px 25px 0 25px;*/
+            transition: 1s;
+        }
+
+        .header::before {
+            z-index: 1;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            content: '';
+            background: rgba(0,0,0,0.4);
+            transition: 0.9s
+        }
+
+        .header-menu-open::before {
+            left: 0;
+            transition: 0.9s;
+        }
+
+        .navbar__btn {
+            position: absolute;
+            right: 0;
+            top: 25px;
+            transform: translateX(100%);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .navbar__btn:focus {
+            outline: 1px solid #007bff;
+        }
+
+        .menu {
+            list-style: none;
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu__item {
+            margin: 15px 0 30px 0;
+            border-bottom: 1px solid #007bff ;
+        }
+
+        .menu__link {
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu__link:hover {
+            color: #f5286d;
+        }
+
+        .menu__link--active {
+            color: #f5286d;
+        }
+
+        .menu-ico {
+            width: 30px;
+
+        }
+
+        .menu-hidden {
+            transform: translateX(-100%);
+            transition: 1s;
+        }
+
+        .firstbar {
+            fill: #fff;
+        }
+
+        .secondbar {
+            fill:#fff;
+        }
+
+        .thirdbar {
+            fill: #fff;
+        }
+
+        .navbar__btn:hover .firstbar, .navbar__btn:hover .thirdbar {
+            transform: translateX(150px);
+            fill: #70ffff;
+            transition: 0.3s;
+        }
+
+        .menu-ico__firstbar--active {
+            transform: translateX(150px);
+            fill: #70ffff;
+        }
+
+        .section2 {
+            background: radial-gradient(#BADA55, #7f9929);
+            height: 100vh;
+            position: relative;
+        }
+
+        .section2 > .title {
+            color: #89a430;
+            z-index: 2;
+        }
+
+        .section3 {
+            background: radial-gradient(#42e5a9, #13ad74);
+            height: 100vh;
+            position: relative;
+        }
+
+        .section3 > .title {
+            color: #1ab57c;
+            z-index: 2;
+        }
+
+        .link-ico {
+            margin: 0 20px 0 0;
+        }
+    </style>
+    <script>
+        // const nfo = document.querySelector('#info');
+        // const btn = document.querySelector('#check');
+        // const canvas = document.querySelector('#canvas');
+        // canvas.width = innerWidth;
+        // canvas.height = innerHeight;
+        //
+        // const colors = ['#FFAF00', '#70ffff', '#FF6C00', '#FF430A', '#FF150A'];
+        //
+        // const ctx = canvas.getContext('2d');
+        //
+        //
+        // window.addEventListener('resize', function() {
+        //     canvas.width = innerWidth;
+        //     canvas.height = innerHeight;
+        //     if(header.classList.contains('header-menu-open')) {
+        //         init();
+        //     }
+        //     return;
+        // })
+        //
+        // function Circle(x,y,radius, dx, dy) {
+        //     this.x = x;
+        //     this.y = y;
+        //     this.dx = dx;
+        //     this.dy = dy;
+        //     this.radius = radius;
+        //     this.color = colors[Math.floor(Math.random() * colors.length)]
+        //     this.draw = function() {
+        //         ctx.beginPath();
+        //         ctx.arc(this.x, this.y, this.radius, 0,Math.PI * 2, false);
+        //         ctx.fillStyle = this.color;
+        //         ctx.fill();
+        //     }
+        //
+        //     this.update = function() {
+        //         if(this.x < 0 || this.x > canvas.width) {
+        //             this.x = 0;
+        //         }
+        //
+        //         if(this.y < 0 || this.y > canvas.height) {
+        //             this.y = 0;
+        //         }
+        //         this.x += this.dx;
+        //         this.y += this.dy;
+        //         this.draw();
+        //     }
+        //
+        //     this.update();
+        // }
+        //
+        // let posArray = [];
+        // function init() {
+        //     posArray = [];
+        //     let radius = Math.floor(Math.random() * (6 - 2 + 1) + 2);
+        //     for(let i = 0; i<132; i++) {
+        //         let x = Math.random() * (canvas.width - radius * 2) + radius;
+        //         let y = Math.random() * (canvas.height - radius * 2) + radius
+        //         let dx = (Math.random() - 0.5) + 3;
+        //         let dy = 2;
+        //
+        //
+        //         posArray.push(new Circle(x,y, radius, dx,dy));
+        //     }
+        // }
+        //
+        //
+        // function animate() {
+        //     if(!header.classList.contains('header-menu-open')) {
+        //         ctx.clearRect(0,0,innerWidth, innerHeight);
+        //         return;
+        //     }
+        //     requestAnimationFrame(animate);
+        //     ctx.clearRect(0,0,innerWidth, innerHeight);
+        //
+        //     for(let i = 0; i<posArray.length; i++) {
+        //         posArray[i].update()
+        //     }
+        // }
+
+
+
+
+        //=========
+        //menu code
+        //=========
+
+        const menu = document.querySelector('#navi');
+        const menuBtn = document.querySelector('#menuBtn');
+        const header = document.querySelector('.header');
+        const menuLink = document.querySelectorAll('.menu__link');
+        const firstBar = document.querySelector('.firstbar')
+        const thirdBar = document.querySelector('.thirdbar');
+
+
+        //close menu after click link
+        menuLink.forEach(link => link.addEventListener('click', function() {
+            menu.classList.toggle('menu-hidden');
+            firstBar.classList.toggle('menu-ico__firstbar--active');
+            thirdBar.classList.toggle('menu-ico__firstbar--active');
+            header.classList.toggle('header-menu-open');
+            canvas.classList.toggle('canvas-bg-active');
+            canvas.classList.toggle('canvas-bg-deactive');
+        }))
+
+
+        menu.classList.add('menu-hidden');
+
+        //show menu and start canvas animation after hamburger button click
+        menuBtn.addEventListener('click', function() {
+            menu.classList.toggle('menu-hidden');
+            firstBar.classList.toggle('menu-ico__firstbar--active');
+            thirdBar.classList.toggle('menu-ico__firstbar--active');
+            header.classList.toggle('header-menu-open');
+            canvas.classList.toggle('canvas-bg-active');
+            canvas.classList.toggle('canvas-bg-deactive');
+
+            init();
+            animate();
+        });
+
+
+        //loss focus on hamburger button, after transitionend
+        menu.addEventListener('transitionend', function() {
+            menuBtn.blur();
+        })
+
+
+        // Select all links with hashes
+        $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                    &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000, function() {
+                            // Callback after animation
+                            // Must change focus!
+                            var $target = $(target);
+                            $target.focus();
+                            if ($target.is(":focus")) { // Checking if the target was focused
+                                return false;
+                            } else {
+                                $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                                $target.focus(); // Set focus again
+                            };
+                        });
+                    }
+                }
+            });
+    </script>
+
+
+{% endblock %}
