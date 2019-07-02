@@ -32,4 +32,14 @@ class DefaultController extends Controller
         return $this->render('juego/layout.html.twig', [
         ]);
     }
+
+    /**
+     * @Route("/phaser", name="phaser")
+     */
+    public function phaserAction()
+    {
+        // replace this example code with whatever you need
+        return $this->render('pruebas/pruebaTutorial.html.twig', [
+        ]);
+    }
 }
