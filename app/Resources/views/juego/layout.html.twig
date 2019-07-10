@@ -33,22 +33,14 @@
      </nav>
      {% endblock %}
      <header id="header" class="header">
-         {% block pantallajuego %}
 
-         {% endblock %}
-         {#<h1 class="title">Canvas Menu Effect</h1>#}
          <a id="btn_salir" href="{{ path('usuario_salir') }}" class="ml-3 btn btn-outline-primary"><i class="fas fa-power-off"></i> EXIT</a>
      </header>
+     {% block pantallajuego %}
+     {% endblock %}
 
 
-     {#<section class="section2" id="section-A">#}
-         {#<h2 class="title">About Section</h2>#}
-     {#</section>#}
 
-     {#<section class="section3" id="section-B">#}
-         {#<h2 class="title">Contact Section</h2>#}
-     {#</section>#}
-     <canvas class="canvas-bg canvas-bg-deactive" id="canvas"></canvas>
  {% endblock %}
 
     <style>
@@ -86,12 +78,12 @@
         }
 
 
-        .header {
-            position: relative;
-            height: 100vh;
+        {#.header {#}
+            {#position: relative;#}
+            {#height: 100vh;#}
             {#background: url("{{ asset('src/mosaico2.jpg') }}");#}
 
-        }
+        {#}#}
 
         .title {
             position: absolute;
