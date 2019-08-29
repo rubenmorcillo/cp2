@@ -1,0 +1,20 @@
+{% extends 'juego/layout.html.twig' %}
+
+{% block pantallajuego %}
+<div id="cont_combate">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.18.1/phaser.js"></script>
+    <script src="{{ asset('js/phaser/escenas/battleScene.js') }}"></script>
+    <script src="{{ asset('js/phaser/escenas/uiScene.js') }}"></script>
+    <script src="{{ asset('js/phaser/escenas/bootScene.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/unit.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/enemigo.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/jugador.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/message.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/menuItem.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/menu.js') }}"></script>
+    <script src="{{ asset('js/phaser/js/menusIngame.js') }}"></script>
+
+    <script src="{{ asset('js/phaser/js/init.js') }}"></script>
+
+</div>
+{% endblock %}

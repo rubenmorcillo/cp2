@@ -38,26 +38,30 @@ var BattleScene = new Phaser.Class({
     create: function ()
     {
          // change the background to green
-        this.cameras.main.setBackgroundColor('rgba(0, 200, 0, 0.5)');
-        
+        this.cameras.main.setBackgroundColor('rgba(150, 180, 180, 0.5)');
+
+        //aqui tendría q llamar a la base de datos para comprobar las estadisticas
+
         // player character - warrior
-        var warrior = new PlayerCharacter(this, 100, 100, 'player', 1, 'Warrior', 100, 20);        
+        var warrior = new PlayerCharacter(this, 300, 220, 'player', 1, 'Warrior', 100, 20);
+        // warrior.setScale(0.5);
         this.add.existing(warrior);
         
         // player character - mage
-        var mage = new PlayerCharacter(this, 100, 250, 'player', 3, 'Mage', 80, 8);
-        this.add.existing(mage);            
+        // var mage = new PlayerCharacter(this, 100, 250, 'player', 3, 'Mage', 80, 8);
+        // this.add.existing(mage);
         
-        var dragonblue = new Enemy(this, 550, 100, 'player', 3, 'Dragon', 50, 3);
+        var dragonblue = new Enemy(this, 1020, 220, 'enemigo', 3, 'Dragon', 50, 3);
+        // dragonblue.setScale(0.05);
         this.add.existing(dragonblue);
         
-        var dragonOrange = new Enemy(this, 550, 250, 'player', 3,'Dragon2', 50, 3);
-        this.add.existing(dragonOrange);
+        // var dragonOrange = new Enemy(this, 550, 250, 'player', 3,'Dragon2', 50, 3);
+        // this.add.existing(dragonOrange);
         
         // array with heroes
-        this.heroes = [ warrior, mage ];
+        this.heroes = [ warrior ];
         // array with enemies
-        this.enemies = [ dragonblue, dragonOrange ];
+        this.enemies = [ dragonblue ];
         // array with both parties, who will attack
         this.units = this.heroes.concat(this.enemies);
         

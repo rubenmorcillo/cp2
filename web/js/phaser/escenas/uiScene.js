@@ -23,9 +23,9 @@ var UIScene = new Phaser.Class({
                 this.currentMenu.moveSelectionUp();
             } else if(event.code === "ArrowDown") {
                 this.currentMenu.moveSelectionDown();
-            } else if(event.code === "ArrowRight" || event.code === "Shift") {
+            } else if(event.code === "ArrowLeft" || event.code === "Shift") {
  
-            } else if(event.code === "Space" || event.code === "ArrowLeft") {
+            } else if(event.code === "Enter" || event.code === "ArrowRight"){
                 this.currentMenu.confirm();
             } 
         }
@@ -52,20 +52,20 @@ var UIScene = new Phaser.Class({
     {    
         this.graphics = this.add.graphics();
         this.graphics.lineStyle(1, 0xffffff);
-        this.graphics.fillStyle(0x031f4c, 1);        
-        this.graphics.strokeRect(1, 379, 160, 100);
-        this.graphics.fillRect(1, 379, 160, 100);
-        this.graphics.strokeRect(160, 379, 320, 100);
-        this.graphics.fillRect(160, 379, 320, 100);
-        this.graphics.strokeRect(480, 379, 160, 100);
-        this.graphics.fillRect(480, 379, 160, 100);
-        
+        this.graphics.fillStyle(0x031f4c, 1);
+        this.graphics.strokeRect(230, 460, 200, 100);
+        this.graphics.fillRect(230, 460, 200, 100);
+        this.graphics.strokeRect(431, 480, 600, 80);
+        this.graphics.fillRect(431, 480, 600, 80);
+        this.graphics.strokeRect(932, 460, 200, 100);
+        this.graphics.fillRect(932, 460, 200, 100);
+
          // basic container to hold all menus
         this.menus = this.add.container();
                 
-        this.heroesMenu = new HeroesMenu(1, 379, this);           
-        this.actionsMenu = new ActionsMenu(160, 379, this);            
-        this.enemiesMenu = new EnemiesMenu(480, 379, this);   
+        this.heroesMenu = new HeroesMenu(230, 460, this);
+        this.actionsMenu = new ActionsMenu(431, 480, this);
+        this.enemiesMenu = new EnemiesMenu(932, 460, this);
         
         // the currently selected menu 
         this.currentMenu = this.actionsMenu;
@@ -79,7 +79,8 @@ var UIScene = new Phaser.Class({
         
         this.remapHeroes();
         this.remapEnemies();
-        
+
+        //aqui le decimos q al pulsar una tecla haga nuestra funcion onKeyInput
         this.input.keyboard.on('keydown', this.onKeyInput, this);
         
         this.battleScene.events.on("PlayerSelect", this.onPlayerSelect, this);

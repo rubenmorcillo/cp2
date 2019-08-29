@@ -24,12 +24,12 @@ class DefaultController extends Controller
         ]);
     }
     /**
-     * @Route("/mj", name="probar")
+     * @Route("/probar", name="probar")
      */
     public function probarAction()
     {
         // replace this example code with whatever you need
-        return $this->render('juego/layout.html.twig', [
+        return $this->render('juego/combate.html.twig', [
         ]);
     }
 
