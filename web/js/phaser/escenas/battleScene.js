@@ -41,14 +41,16 @@ var BattleScene = new Phaser.Class({
         this.cameras.main.setBackgroundColor('rgba(150, 180, 180, 0.5)');
 
         //CREO LOS PERSONAJES
-        //aqui tendría q llamar a la base de datos para comprobar las estadisticas
-
+        console.log("creando");
+        var nombre = leeAliado.nombre;
+        // console.log(nombre);
+        // console.log(leeAliado.nombre);
         var a_hp = 100;
         var a_atq = 12;
         var a_def = 4;
         var a_speed = 1;
 
-        var soldadoAliado = new Aliado(this, 300, 200, 'player',1,'aliado', a_hp,a_atq,a_def, a_speed );
+        var soldadoAliado = new Aliado(this, 300, 200, 'player',1,nombre, a_hp,a_atq,a_def, a_speed );
         this.add.existing(soldadoAliado);
 
 

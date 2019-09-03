@@ -13,9 +13,9 @@ var BootScene = new Phaser.Class({
     {
         // load resources
         //necesito conseguir la imagen del jugador y el enemigo
-        //hago una llamada JSON a la base de datos para la imagen?
-
-        this.load.spritesheet('player', '../../src/pjs/pj4.jpg', {frameWidth: 1200, frameHeight: 1400 });
+        var imgAliado = '../../src/pjs/'+ leeAliado.imagen;
+        console.log(imgAliado);
+        this.load.spritesheet('player', imgAliado, {frameWidth: 1200, frameHeight: 1400 });
         this.load.spritesheet('enemigo', '../../src/pjs/pj5.jpg', {frameWidth: 1200, frameHeight: 1400});
 //
     },

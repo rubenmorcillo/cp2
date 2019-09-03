@@ -1,0 +1,24 @@
+{% extends 'juego/layout.html.twig' %}
+{% set pj = aliado.mercenary %}
+{% block pantallajuego %}
+
+
+    <div id="cont_combate" pjNombre="{{ pj.name }}" pjImg="{{ pj.image }}" pjHp="{{ pj.hpBase }}" pjAtq="{{ pj.atqBase }}" pjDef="{{ pj.defBase }}" pjVel="{{ pj.velBase }}">
+        <script src="{{ asset('js/phaser/js/leeAliado.js') }}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.18.1/phaser.js"></script>
+        <script src="{{ asset('js/phaser/escenas/battleScene.js') }}"></script>
+        <script src="{{ asset('js/phaser/escenas/uiScene.js') }}"></script>
+        <script src="{{ asset('js/phaser/escenas/bootScene.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/soldado.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/enemigo.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/aliado.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/message.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/menuItem.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/menu.js') }}"></script>
+        <script src="{{ asset('js/phaser/js/menusIngame.js') }}"></script>
+
+        <script src="{{ asset('js/phaser/js/init.js') }}"></script>
+
+    </div>
+{% endblock %}
