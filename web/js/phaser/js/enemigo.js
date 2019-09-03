@@ -1,9 +1,9 @@
-var Enemy = new Phaser.Class({
-    Extends: Unit,
+var Enemigo = new Phaser.Class({
+    Extends: Soldado,
  
     initialize:
-    function Enemy(scene, x, y, texture, frame, type, hp, damage) {
-        Unit.call(this, scene, x, y, texture, frame, type, hp, damage);
+    function Enemigo(scene, x, y, texture, frame, type, hp, atq, def, speed) {
+        Soldado.call(this, scene, x, y, texture, frame, type, hp, atq, def, speed);
         this.setScale(0.1);
 
         this.flipX = true;

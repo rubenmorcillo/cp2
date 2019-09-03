@@ -17,7 +17,7 @@ var BattleScene = new Phaser.Class({
         }
         if(this.units[this.index]) {
             // if its player hero
-            if(this.units[this.index] instanceof PlayerCharacter) {                
+            if(this.units[this.index] instanceof Aliado) {
                 this.events.emit('PlayerSelect', this.index);
             } else { // else if its enemy unit
                 // pick random hero
@@ -40,29 +40,32 @@ var BattleScene = new Phaser.Class({
          // change the background to green
         this.cameras.main.setBackgroundColor('rgba(150, 180, 180, 0.5)');
 
+        //CREO LOS PERSONAJES
         //aqui tendría q llamar a la base de datos para comprobar las estadisticas
 
-        // player character - warrior
-        var warrior = new PlayerCharacter(this, 300, 220, 'player', 1, 'Warrior', 100, 20);
-        // warrior.setScale(0.5);
-        this.add.existing(warrior);
+        var a_hp = 100;
+        var a_atq = 12;
+        var a_def = 4;
+        var a_speed = 1;
+
+        var soldadoAliado = new Aliado(this, 300, 200, 'player',1,'aliado', a_hp,a_atq,a_def, a_speed );
+        this.add.existing(soldadoAliado);
+
+
+        var e_hp = 60;
+        var e_atq = 5;
+        var e_def = 2;
+        var e_speed = 1;
+
+        var soldadoEnemigo = new Enemigo(this, 1020, 220, 'enemigo', 3, 'esbirro', e_hp,e_atq,e_def,e_speed);
+        this.add.existing(soldadoEnemigo);
+
         
-        // player character - mage
-        // var mage = new PlayerCharacter(this, 100, 250, 'player', 3, 'Mage', 80, 8);
-        // this.add.existing(mage);
-        
-        var dragonblue = new Enemy(this, 1020, 220, 'enemigo', 3, 'Dragon', 50, 3);
-        // dragonblue.setScale(0.05);
-        this.add.existing(dragonblue);
-        
-        // var dragonOrange = new Enemy(this, 550, 250, 'player', 3,'Dragon2', 50, 3);
-        // this.add.existing(dragonOrange);
-        
-        // array with heroes
-        this.heroes = [ warrior ];
-        // array with enemies
-        this.enemies = [ dragonblue ];
-        // array with both parties, who will attack
+        // array con aliados (heroes)
+        this.heroes = [ soldadoAliado ];
+        // array con enemigos
+        this.enemies = [ soldadoEnemigo ];
+        // array todos soldados que atacarán
         this.units = this.heroes.concat(this.enemies);
         
         // Run UI Scene at the same time
