@@ -3,18 +3,23 @@
 {% block pantallajuego %}
  <div id="tablas_stats">
     {%  for replica in replicas %}
-        <div  class=tabla_equipo>
-            <p class="titulo_equipo"> <span class="letra_equipo">Soldado </span>
-                <span class="letra_equipo_sub">Nivel</span>
+        <a href={{ path('marraneoLucha', {'aliado':replica.id}) }}>
+        <div  class=tabla_personaje>
+
+            <p class="nombre_personaje"> <span class="letra_personaje">{{ replica.mercenary.name }} </span>
+                <span class="letra_personaje_sub"> xP{{ replica.exp }}</span>
             </p>
+            <div id="datos_personaje">
             <p>
-                <span class="nombre_arma">{{ replica.mercenary.name }}</span>
+                <span class="tipo_personaje">Soldado</span>
             </p>
             <p><span class="letra_stat">HP {{ replica.mercenary.hpBase }}</span></p>
             <p><span class="letra_stat">ATQ {{ replica.mercenary.atqBase }}</span></p>
             <p><span class="letra_stat">DEF {{ replica.mercenary.defBase }}</span></p>
             <p><span class="letra_stat">VEL {{ replica.mercenary.velBase }}</span></p>
+            </div>
         </div>
+        </a>
     {% endfor %}
 
 
@@ -24,6 +29,7 @@
 {%  block stylesheets %}
     {{ parent() }}
     <style>
+
         #btnLuchar{
             position: fixed;
             top: 4em;
@@ -37,13 +43,15 @@
 
         body{
             background-color: #000000;
+            font-size: 2em;
         }
+
         #tablas_stats{
+            display:inline-block;
             margin:2.5em 1em 0.5em;
-            width: 30%;
         }
-        .tabla_equipo{
-            width:100%;
+        .tabla_personaje{
+            width:30%;
             display:inline-block;
             border-top: 1px outset  #d37491;
             border-bottom: 1px inset rgba(211,10,80,1);
@@ -51,9 +59,17 @@
             border-right:1px inset  #d37491;
             margin-top:0.3em;
         }
-        .tabla_equipo:hover{
+        .tabla_personaje:hover{
             background-color: rgba(0,255,200,0.2);
 
+        }
+        .tabla_personaje p{
+            margin-top: 0.1em;
+            margin-bottom: 0.1em;
+        }
+        #datos_personaje{
+            width:30%;
+            display: inline-block;
         }
         .letra_top{
             font-family: MatrixBook;
@@ -70,19 +86,19 @@
             font-family: MatrixBoldSmallCaps;
             color: rgba(182,255,192,0.4);
         }
-        .letra_equipo{
+        .letra_personaje{
 
             font-family: MatrixBook;
             font-weight: bolder;
             color: #d37491;
         }
-        .letra_equipo_sub{
+        .letra_personaje_sub{
 
             font-family: MatrixBook;
             font-weight: lighter;
             color: rgba(211,10,80,1);
         }
-        .nombre_arma{
+        .tipo_personaje{
             margin-left:20%;
             font-family:ModMatrix;
             color: rgba(0,255,180,0.8);
@@ -92,7 +108,7 @@
             font-family: ModMatrix;
             color:#d37491;
         }
-        .titulo_equipo{
+        .nombre_personaje{
             border-bottom: 0.5px solid rgba(211,10,80,1);
         }
         .resaltado{
