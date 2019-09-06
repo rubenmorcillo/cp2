@@ -25,154 +25,38 @@ AppBundle\Entity\Mercenary:
   mer1:
     name: cykan
     image: pj1.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
+    hpBase: 100
+    atqBase: 10
+    defBase: 10
+    velBase: 5
     rarity: '@rareza_<numberBetween(1,4)>'
 
 
   mer2:
     name: scyfer
     image: pj2.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
+    hpBase: 80
+    atqBase: 6
+    defBase: 2
+    velBase: 2
     rarity: '@rareza_<numberBetween(1,4)>'
 
   mer3:
-    name: pajizo
+    name: jack
     image: pj3.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer4:
-    name: netrunner
-    image: pj4.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer5:
-    name: raven
-    image: pj5.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer6:
-    name: hatori
-    image: pj6.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
+    hpBase: 120
+    atqBase: 8
+    defBase: 8
     velBase: 1
     rarity: '@rareza_<numberBetween(1,4)>'
 
 
-  mer7:
-    name: latto
-    image: pj7.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer8:
-    name: kenshi
-    image: pj8.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer9:
-    name: maniac-q
-    image: pj9.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer10:
-    name: neo-samurai
-    image: pj10.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer11:
-    name: backet
-    image: pj11.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer12:
-    name: roniac
-    image: pj12.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer13:
-    name: downgrade
-    image: pj13.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer14:
-    name: firebird
-    image: pj14.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer15:
-    name: lk-50
-    image: pj15.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
-
-  mer16:
-    name: titan
-    image: pj16.jpg
-    hpBase: 1
-    atqBase: 1
-    defBase: 1
-    velBase: 1
-    rarity: '@rareza_<numberBetween(1,4)>'
 
 
 AppBundle\Entity\Replic:
-  replica_{1..10}:
+  replica_{1..6}:
     owner: '@jugador_test'
-    mercenary: '@mer<numberBetween(1,16)>'
+    mercenary: '@mer<numberBetween(1,3)>'
     exp: 0
 
 

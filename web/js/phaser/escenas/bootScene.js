@@ -12,7 +12,6 @@ var BootScene = new Phaser.Class({
     preload: function ()
     {
         // load resources
-        //necesito conseguir la imagen del jugador y el enemigo
         var imgAliado = '../../src/pjs/'+ leeAliado.imagen;
         console.log(imgAliado);
         this.load.spritesheet('player', imgAliado, {frameWidth: 1200, frameHeight: 1400 });

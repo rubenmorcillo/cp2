@@ -17,5 +17,9 @@ var Soldado = new Phaser.Class({
     },
     takeDamage: function(atq) {
         this.hp -= atq - this.def;
+        this.scene.events.emit("Message", this.type + " = " + this.hp);
+        console.log("a "+this.type +" le quedan "+this.hp+ " de vida");
+
+
     }
 });

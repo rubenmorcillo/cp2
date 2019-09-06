@@ -24,15 +24,7 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
-    /**
-     * @Route("/probar", name="probar")
-     */
-    public function probarAction()
-    {
-        // replace this example code with whatever you need
-        return $this->render('juego/combate.html.twig', [
-        ]);
-    }
+
     /**
      * @Route("/marraneo/", name="marraneo")
      */
@@ -60,7 +52,7 @@ class DefaultController extends Controller
     public function phaserAction()
     {
         // replace this example code with whatever you need
-        return $this->render( 'juego/combate.html.twig', [
+        return $this->render( 'pruebas/nuevoJuego.html.twig', [
         ]);
     }
 }

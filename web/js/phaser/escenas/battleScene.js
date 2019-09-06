@@ -43,17 +43,17 @@ var BattleScene = new Phaser.Class({
         //CREO LOS PERSONAJES
         console.log("creando");
         var nombre = leeAliado.nombre;
-        // console.log(nombre);
-        // console.log(leeAliado.nombre);
-        var a_hp = 100;
-        var a_atq = 12;
-        var a_def = 4;
-        var a_speed = 1;
+        var a_hp = leeAliado.hp;
+        var a_atq = leeAliado.atq;
+        var a_def = leeAliado.def;
+        var a_speed = leeAliado.vel;
 
         var soldadoAliado = new Aliado(this, 300, 200, 'player',1,nombre, a_hp,a_atq,a_def, a_speed );
         this.add.existing(soldadoAliado);
 
 
+
+        //de momento el enemigo es genérico
         var e_hp = 60;
         var e_atq = 5;
         var e_def = 2;

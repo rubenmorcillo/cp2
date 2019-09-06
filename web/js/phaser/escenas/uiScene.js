@@ -47,9 +47,15 @@ var UIScene = new Phaser.Class({
         this.currentMenu = null;
         this.battleScene.receivePlayerSelection('attack', index);
     },
+    funcionBoton: function(){
+        console.log("boton pulsado");
+    },
     
     create: function ()
-    {    
+    {
+
+
+        //---------------
         this.graphics = this.add.graphics();
         this.graphics.lineStyle(1, 0xffffff);
         this.graphics.fillStyle(0x031f4c, 1);
