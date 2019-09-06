@@ -19,7 +19,7 @@ var BootScene = new Phaser.Class({
         this.load.tilemapTiledJSON('map', '../../../src/phaser2/ultimapa.json');
 
         //nuestros personajes
-        this.load.spritesheet('player' , '../../../src/phaser2/playersprites.jpg', {frameWidth: 64, frameHeight: 64});
+        this.load.spritesheet('player' , '../../../src/phaser2/playersprites.jpg', {frameWidth: 32, frameHeight: 32});
 
 
     },
