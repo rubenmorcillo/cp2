@@ -16,10 +16,14 @@ var BootScene = new Phaser.Class({
         this.load.image('tiles', '../../../src/phaser2/pokemapa1.png');
 
         //mapa en formato JSON
-        this.load.tilemapTiledJSON('map', '../../../src/phaser2/ultimapa.json');
+        this.load.tilemapTiledJSON('map', '../../../src/phaser2/colisiones2.json');
 
         //nuestros personajes
-        this.load.spritesheet('player' , '../../../src/phaser2/playersprites.jpg', {frameWidth: 32, frameHeight: 32});
+        // this.load.spritesheet('player' , '../../../src/phaser2/playersprites.jpg', {frameWidth: 32, frameHeight: 32});
+        this.load.spritesheet('player' , '../../../src/phaser2/player.png', {frameWidth: 16, frameHeight: 22});
+        this.load.spritesheet('playerArriba' , '../../../src/phaser2/playerArriba.png', {frameWidth: 16, frameHeight: 16});
+        this.load.spritesheet('playerAbajo' , '../../../src/phaser2/playerAbajo.png', {frameWidth: 16, frameHeight: 16});
+
 
 
     },
@@ -52,9 +56,14 @@ var WorldScene = new Phaser.Class({
 
         var grass = map.createStaticLayer('Grass', tiles, 0, 0);
         var obstacles = map.createStaticLayer('Obstacles', tiles, 0, 0);
+        var obstacles2 = map.createStaticLayer('Extra', tiles, 0, 0);
         obstacles.setCollisionByExclusion([-1]);
+        obstacles2.setCollisionByExclusion([-1]);
 
         this.player = this.physics.add.sprite(100,200,'player', 6);
+        this.player.displayWidth = 35;
+        //scale evenly
+        this.player.scaleY = this.player.scaleX;
 
         this.physics.world.bounds.width = map.widthInPixels;
         this.physics.world.bounds.height = map.heightInPixels;
@@ -67,6 +76,8 @@ var WorldScene = new Phaser.Class({
         this.cameras.main.roundPixels = true;
 
         this.physics.add.collider(this.player, obstacles);
+        this.physics.add.collider(this.player, obstacles2);
+
 
     },
     update: function (time, delta)
