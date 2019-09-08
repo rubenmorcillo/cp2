@@ -20,11 +20,9 @@ var BootScene = new Phaser.Class({
 
         //nuestros personajes
         // this.load.spritesheet('player' , '../../../src/phaser2/playersprites.jpg', {frameWidth: 32, frameHeight: 32});
-        this.load.spritesheet('player' , '../../../src/phaser2/player.png', {frameWidth: 16, frameHeight: 22});
-        this.load.spritesheet('playerArriba' , '../../../src/phaser2/playerArriba.png', {frameWidth: 16, frameHeight: 16});
-        this.load.spritesheet('playerAbajo' , '../../../src/phaser2/playerAbajo.png', {frameWidth: 16, frameHeight: 16});
-
-
+        this.load.spritesheet('player' , '../../../src/phaser2/player.png', {frameWidth: 16, frameHeight: 25});
+        this.load.spritesheet('playerArriba' , '../../../src/phaser2/playerArriba.png', {frameWidth: 16, frameHeight: 22});
+        this.load.spritesheet('playerAbajo' , '../../../src/phaser2/playerAbajo.png', {frameWidth: 16, frameHeight: 22});
 
     },
 
@@ -62,8 +60,39 @@ var WorldScene = new Phaser.Class({
 
         this.player = this.physics.add.sprite(100,200,'player', 6);
         this.player.displayWidth = 35;
-        //scale evenly
+        // //scale evenly
         this.player.scaleY = this.player.scaleX;
+
+        //creando las animaciones
+        this.anims.create({
+            key: 'quieto',
+            repeat: -1,
+            frames: this.anims.generateFrameNames('player', {start:0, end:0})
+        });
+
+        this.anims.create({
+            key: 'derecha',
+            repeat: -1,
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('player', {start: 0, end: 3})
+
+        });
+        this.anims.create({
+            key: 'arriba',
+            repeat: -1,
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('playerArriba', {start: 0, end: 3})
+        });
+
+        this.anims.create({
+            key: 'abajo',
+            repeat: -1,
+            frameRate: 4,
+            frames: this.anims.generateFrameNames('playerAbajo', {start: 0, end: 3})
+         });
+
+        this.player.anims.stop();
+
 
         this.physics.world.bounds.width = map.widthInPixels;
         this.physics.world.bounds.height = map.heightInPixels;
@@ -79,22 +108,46 @@ var WorldScene = new Phaser.Class({
         this.physics.add.collider(this.player, obstacles2);
 
 
+        //creamos zonas en el grupo de fisicas q detecten colisiones, para ver cuando encuentra un enemigo
+        this.spawns = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
+        for(var i = 0; i < 30; i++) {
+            var x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+            var y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+            // parameters are x, y, width, height
+            this.spawns.create(x, y, 20, 20);
+        }
+        this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
+
+
+    },
+    onMeetEnemy: function(player, zone) {
+        //movemos nuestra zona a otra localizacion
+        zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+        zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+
+        // efecto de agitar pa darle el toque dramático
+        this.cameras.main.shake(300);
+
+        // start battle
+
     },
     update: function (time, delta)
     {
         this.player.body.setVelocity(0);
 
-        // Horizontal movement
+        //movimiento
         if (this.cursors.left.isDown)
         {
             this.player.body.setVelocityX(-80);
+
+
         }
         else if (this.cursors.right.isDown)
         {
             this.player.body.setVelocityX(80);
+
         }
 
-        // Vertical movement
         if (this.cursors.up.isDown)
         {
             this.player.body.setVelocityY(-80);
@@ -102,6 +155,30 @@ var WorldScene = new Phaser.Class({
         else if (this.cursors.down.isDown)
         {
             this.player.body.setVelocityY(80);
+
+
+        //animaciones
+        }
+        if (this.cursors.left.isDown)
+        {
+            this.player.anims.play('derecha', true);
+        }
+        else if (this.cursors.right.isDown)
+        {
+            this.player.anims.play('derecha', true);
+
+        }
+        else if (this.cursors.up.isDown)
+        {
+            this.player.anims.play('arriba', true);
+        }
+        else if (this.cursors.down.isDown)
+        {
+            this.player.anims.play('abajo', true);
+        }
+        else
+        {
+            this.player.anims.stop();
         }
     }
 });
@@ -116,7 +193,8 @@ var config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 0 }
+            gravity: { y: 0 },
+            debug: true
         }
     },
     scene: [
