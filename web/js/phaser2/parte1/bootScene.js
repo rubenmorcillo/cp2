@@ -119,6 +119,15 @@ var WorldScene = new Phaser.Class({
         this.physics.add.overlap(this.player, this.spawns, this.onMeetEnemy, false, this);
 
 
+        this.sys.events.on('wake', this.wake, this);
+
+
+    },
+    wake: function() {
+        this.cursors.left.reset();
+        this.cursors.right.reset();
+        this.cursors.up.reset();
+        this.cursors.down.reset();
     },
     onMeetEnemy: function(player, zone) {
         //movemos nuestra zona a otra localizacion
@@ -126,9 +135,16 @@ var WorldScene = new Phaser.Class({
         zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
 
         // efecto de agitar pa darle el toque dramático
-        this.cameras.main.shake(300);
+        this.cameras.main.fadeOut(800);
+        var camara = this.cameras;
+
+
 
         // start battle
+        this.scene.switch('BattleScene');
+        setTimeout(function(){
+            camara.main.fadeIn(800);
+        }, 1000);
 
     },
     update: function (time, delta)
@@ -199,7 +215,9 @@ var config = {
     },
     scene: [
         BootScene,
-        WorldScene
+        WorldScene,
+        BattleScene,
+        UIScene
     ]
 };
 var game = new Phaser.Game(config);
